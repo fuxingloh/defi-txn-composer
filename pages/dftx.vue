@@ -4,7 +4,7 @@
     <textarea class="mt-3 h-64 border rounded w-full" @change="onRaw" v-model="raw">
     </textarea>
 
-    <h1 class="mt-6 text-2xl font-bold">Serialized</h1>
+    <h1 class="mt-6 text-2xl font-bold">Deserialized</h1>
     <pre class="mt-3 text-sm bg-gray-100 p-4 border rounded w-full">{{ serialized }}</pre>
   </div>
 </template>
