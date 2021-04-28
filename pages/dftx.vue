@@ -1,6 +1,6 @@
 <template>
   <div class="container mx-auto py-8">
-    <h1 class="text-2xl font-bold">Raw Txn V4</h1>
+    <h1 class="text-2xl font-bold">Raw DfTx</h1>
     <textarea class="mt-3 h-64 border rounded w-full" @change="onRaw" v-model="raw">
     </textarea>
 
@@ -12,8 +12,8 @@
 <script lang="ts">
 import Vue from 'vue'
 import {SmartBuffer} from 'smart-buffer'
-import {CTransactionSegWit, CTransaction} from "@defichain/jellyfish-transaction";
-//
+import {toOPCodes} from "@defichain/jellyfish-transaction/dist/script";
+
 export default Vue.extend({
   data() {
     return {
@@ -24,13 +24,7 @@ export default Vue.extend({
   methods: {
     onRaw() {
       const buffer = SmartBuffer.fromBuffer(Buffer.from(this.raw, 'hex'))
-      if (this.raw.startsWith('040000000001')) {
-        const tx = new CTransactionSegWit(buffer)
-        this.serialized = tx.toObject()
-      } else {
-        const tx = new CTransaction(buffer)
-        this.serialized = tx.toObject()
-      }
+      this.serialized = toOPCodes(buffer)
     }
   }
 })

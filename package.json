@@ -11,6 +11,7 @@
   "dependencies": {
     "@defichain/jellyfish-transaction": "^0.0.16",
     "@nuxtjs/pwa": "^3.3.5",
+    "bignumber.js": "^9.0.1",
     "core-js": "^3.9.1",
     "nuxt": "^2.15.3",
     "smart-buffer": "^4.1.0"
