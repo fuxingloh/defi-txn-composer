@@ -9,7 +9,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import Vue from 'vue'
 import {SmartBuffer} from 'smart-buffer'
 import {toOPCodes} from "@defichain/jellyfish-transaction/dist/script";
