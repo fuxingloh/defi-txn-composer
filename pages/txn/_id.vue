@@ -6,15 +6,15 @@
     </div>
 
     <div class="mt-6">
-      <h1 class="text-2xl font-bold">Inputs</h1>
-      <div v-for="input in data.vin" class="p-4 bg-gray-200 rounded py-8">
+      <h1 class="mb-3 text-3xl font-bold">Inputs</h1>
+      <div v-for="input in data.vin" class="p-4 bg-gray-200 rounded mb-8">
         <pre class="text-sm">{{ input }}</pre>
       </div>
     </div>
 
     <div class="mt-6">
-      <h1 class="text-2xl font-bold">Inputs</h1>
-      <div v-for="output in data.vout" class="p-4 bg-gray-200 rounded my-8">
+      <h1 class="mb-3 text-3xl font-bold">Ouputs</h1>
+      <div v-for="output in data.vout" class="p-4 bg-gray-200 rounded mb-8">
         <pre class="text-sm">{{ output }}</pre>
       </div>
     </div>
