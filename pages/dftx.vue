@@ -12,7 +12,7 @@
 <script>
 import Vue from 'vue'
 import {SmartBuffer} from 'smart-buffer'
-import {toOPCodes} from "@defichain/jellyfish-transaction/dist/script";
+import {OP_CODES} from "@defichain/jellyfish-transaction/dist/script";
 
 export default Vue.extend({
   data() {
@@ -24,7 +24,7 @@ export default Vue.extend({
   methods: {
     onRaw() {
       const buffer = SmartBuffer.fromBuffer(Buffer.from(this.raw, 'hex'))
-      this.serialized = toOPCodes(buffer)
+      this.serialized = OP_CODES.fromBuffer(buffer)
     }
   }
 })

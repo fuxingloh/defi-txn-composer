@@ -23,11 +23,14 @@
 
 <script>
 import {SmartBuffer} from 'smart-buffer'
-import {toOPCodes} from "@defichain/jellyfish-transaction/dist/script";
+import {OP_CODES} from "@defichain/jellyfish-transaction/dist/script";
 
 function decode(hex) {
+  if (hex === undefined) {
+    return  ''
+  }
   const buffer = SmartBuffer.fromBuffer(Buffer.from(hex, 'hex'))
-  return toOPCodes(buffer)
+  return OP_CODES.fromBuffer(buffer)
 }
 
 export default {
@@ -41,12 +44,13 @@ export default {
     const id = params.id
     const res = await fetch(`https://mainnet-api.defichain.io/api/DFI/mainnet/tx/${id}/decoderaw`)
     const data = await res.json()
+    console.log(data)
     return {
       data: {
         ...data,
         vin: data.vin.map(vin => {
           return {
-            decoded: decode(vin.scriptSig.hex),
+            decoded: decode(vin.scriptSig?.hex),
             ...vin
           }
         }),
